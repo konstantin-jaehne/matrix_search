@@ -48,13 +48,13 @@ public class Search {
 
                 if (!Rp.isEmpty()) {
                     // Wähle den Median -> L
-                    float L = getMedian(stats, Rp);
+                    float md = getMedian(stats, Rp);
 
                     // Orakelaufruf (L1 oder L2 wird angepasst)
-                    if (L > value) {
-                        L2 = L;
+                    if (md > value) {
+                        L2 = md;
                     } else {
-                        L1 = L;
+                        L1 = md;
                     }
                     stats.incOracleCalls();
                 }

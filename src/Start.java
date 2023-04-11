@@ -18,11 +18,11 @@ public class Start {
                 int[][] M = GenerateTestData.generateRandomSortedMatrix(4, m); // Generiere zufällige Matrix
                 int value = pickValue(M); // Wähle zufälligen in Matrix enthaltenen Wert aus
                 Search search = new Search(M);
-                resultsPath0.add(search.search_SELECT(value));
+                resultsPath0.add(search.search_SEARCH(value));
                 resultsBasic.add(search.search_ITERATIVE_ELIMINATION(value));
                 results1Dsorting.add(search.search_1D_BINSEARCH(value));
             }
-            printResults("SELECT", resultsPath0);
+            printResults("SEARCH", resultsPath0);
             printResults("ITERATIVE_ELIMINATION", resultsBasic);
             printResults("1D_BINSEARCH", results1Dsorting);
             System.out.println();
@@ -41,11 +41,11 @@ public class Start {
                 int[][] M = GenerateTestData.generateRandomSortedMatrix(m, m); // Generiere zufällige Matrix
                 int value = pickValue(M); // Wähle zufälligen in Matrix enthaltenen Wert aus
                 Search search = new Search(M);
-                resultsPath0.add(search.search_SELECT(value));
+                resultsPath0.add(search.search_SEARCH(value));
                 resultsBasic.add(search.search_ITERATIVE_ELIMINATION(value));
                 results1Dsorting.add(search.search_1D_BINSEARCH(value));
             }
-            printResults("SELECT", resultsPath0);
+            printResults("SEARCH", resultsPath0);
             printResults("ITERATIVE_ELIMINATION", resultsBasic);
             printResults("1D_BINSEARCH", results1Dsorting);
             System.out.println();
@@ -64,11 +64,11 @@ public class Start {
                 int[][] M = GenerateTestData.generateRandomSortedMatrix(32, m); // Generiere zufällige Matrix
                 int value = pickValue(M); // Wähle zufälligen in Matrix enthaltenen Wert aus
                 Search search = new Search(M);
-                resultsPath0.add(search.search_SELECT(value));
+                resultsPath0.add(search.search_SEARCH(value));
                 resultsBasic.add(search.search_ITERATIVE_ELIMINATION(value));
                 results1Dsorting.add(search.search_1D_BINSEARCH(value));
             }
-            printResults("SELECT", resultsPath0);
+            printResults("SEARCH", resultsPath0);
             printResults("ITERATIVE_ELIMINATION", resultsBasic);
             printResults("1D_BINSEARCH", results1Dsorting);
             System.out.println();

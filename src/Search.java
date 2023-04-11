@@ -17,20 +17,17 @@ public class Search {
         this.m = startMatrix[0].length;
     }
 
-    public Stats search_SELECT(int value) {
+    public Stats search_SEARCH(int value) {
         // Init Stats und Interval
-        //System.out.println("PATH0-Search for value = " + value + " in matrix of size " + n + "*" + m + ".");
         Stats stats = new Stats();
         long startTime = System.currentTimeMillis();
         float L1 = startMatrix[0][0];
         float L2 = Integer.MAX_VALUE;
 
-        // INIT_MAT
         // Teile die Startmatrix in 4 Teilmatrizen auf
         List<int[][]> subMatrices = split(stats, Collections.singletonList(startMatrix), L1, L2);
 
         while (!subMatrices.isEmpty()) {
-            // TEST_VAL
             // Initialisiere R
             List<Integer> R = new ArrayList<>();
             if (subMatrices.get(0).length == 1 && subMatrices.get(0)[0].length == 1) {
@@ -63,7 +60,6 @@ public class Search {
                 }
             }
 
-            // UPDATE_MAT
             // Entferne alle Matrizen mit Werten außerhalb des Intervals (L1,L2)
             float finalL2 = L1;
             float finalL3 = L2;
@@ -79,19 +75,14 @@ public class Search {
         long endTime = System.currentTimeMillis();
         stats.setTime(endTime - startTime);
         if (L1 == value) {
-            //System.out.print("Suche erfolgreich, ");
         } else {
-            //System.out.print("Suche fehlgeschlagen, ");
             stats.makeUnsuccessful();
         }
-        //System.out.print("L1 = " + L1 + ", ");
-        //System.out.println("L2 = " + L2 + ".");
         return stats;
     }
 
     public Stats search_ITERATIVE_ELIMINATION(int value) {
         // Init Stats
-        //System.out.println("BASIC-Search for value = " + value + " in matrix of size " + n + "*" + m + ".");
         Stats stats = new Stats();
         long startTime = System.currentTimeMillis();
 
@@ -115,9 +106,7 @@ public class Search {
         long endTime = System.currentTimeMillis();
         stats.setTime(endTime - startTime);
         if (startMatrix[i][k] == value) {
-            //System.out.println("Suche erfolgreich.");
         } else {
-            //System.out.println("Suche fehlgeschlagen.");
             stats.makeUnsuccessful();
         }
         return stats;
@@ -125,7 +114,6 @@ public class Search {
 
     public Stats search_1D_BINSEARCH(int value) {
         // Init Stats
-        //System.out.println("1D-Search for value = " + value + " in matrix of size " + n + "*" + m + ".");
         Stats stats = new Stats();
         long startTime = System.currentTimeMillis();
 
@@ -161,9 +149,7 @@ public class Search {
         long endTime = System.currentTimeMillis();
         stats.setTime(endTime - startTime);
         if (flattenedList.get(LEFT) == value && flattenedList.get(RIGHT) == value) {
-            //System.out.println("Suche erfolgreich.");
         } else {
-            //System.out.println("Suche fehlgeschlagen.");
             stats.makeUnsuccessful();
         }
         return stats;
